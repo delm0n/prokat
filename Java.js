@@ -40,39 +40,42 @@ const swiper = new Swiper('.hiddenoverflow', {
 
 
 
-const contain_tabs = document.querySelector('.titleInSection');
-const title_tabs = document.querySelectorAll('.titleInSection_page');
 const content_page_all = document.querySelectorAll('.content_page');
 
 
+const title_block = document.querySelectorAll('.title_block')
+
+
 function ChangeActiveTitle(el) {
-    for (let i = 0; i < title_tabs.length; i++) 
-         { contain_tabs.children[i].classList.remove('titleInSection_activePage'); }
-       
-    el.classList.add('titleInSection_activePage');
+    for (let i = 0; i < title_block.length; i++) {
+        title_block[i].classList.remove('title_block_active');
+    }
+    title_block[el].classList.add('title_block_active');
 }
 
 
 let currTab = 0
 //узнаём с помощью target элемент, по которому кликнули
-contain_tabs.addEventListener('click', e => {
-    if (e.target.dataset.title === "1" || e.target.dataset.title === "2" || e.target.dataset.title === "3" ) 
-    {
-        currTab = e.target.dataset.title;
-        // console.log(currTab)
-        ChangeActiveTitle(e.target)
-    }
+for (let i = 0; i<title_block.length; i++) {
+    title_block[i].addEventListener('click', e => {
+        if (e.target.dataset.title === "1" || e.target.dataset.title === "2" || e.target.dataset.title === "3" ) 
+            {
+                currTab = e.target.dataset.title - 1;
+                console.log(currTab)
+                ChangeActiveTitle(currTab)
+            }
 
-    for (let i =0; i < content_page_all.length; i++) 
-        {
-            content_page_all[i].classList.remove('active_page');
-            if (content_page_all[i].dataset.page === currTab) 
-                {
-                    content_page_all[i].classList.add('active_page');
-                }
-        }
+            for (let i =0; i < content_page_all.length; i++) 
+            {
+                content_page_all[i].classList.remove('active_page');
+                if (content_page_all[i].dataset.page == (currTab+1)) 
+                    {
+                        content_page_all[i].classList.add('active_page');
+                    }
+            }
 
-})
+    })
+}
 
 const formTabs = document.querySelectorAll('.formTabs')
 const formTabs_container = document.querySelector('.formTabs__container')

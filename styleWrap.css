@@ -76,7 +76,7 @@ nav {
     font-style: normal;
     font-weight: bold; 
     color: var(--MainColor);
-    
+    /* position: relative; */
 }
 
 .info_card{
