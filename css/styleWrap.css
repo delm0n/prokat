@@ -373,6 +373,17 @@ margin-top: 26px;
 display: none;
 }
 
+.animation {
+    opacity: 0;
+    transition: all 1s ease 0s;
+}
+
+.active_anim{
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+
 @media (max-width: 425px) {
     .imgWhiteBlockContainer {
         display: none;

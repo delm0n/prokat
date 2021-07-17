@@ -582,6 +582,10 @@ color: var(--IconColor);
     90% {
         transform: rotate(415deg);
     }
+/* 
+    70%{
+        transform: rotate(380deg);
+    } */
     100%{
         transform: rotate(360deg);
     }

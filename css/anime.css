@@ -1,5 +1,5 @@
 .loaderArea {
-    background: rgba(195, 212, 250, 0.6);
+    background: rgba(255, 255, 255, 0.75);
     /* overflow: hidden; */
     position: fixed;
      left: 0;
@@ -34,7 +34,7 @@
   border-right: 1.2em solid #324E97;
   border-bottom: 1.2em solid rgba(255, 255, 255, 0);
   border-left: 1.2em solid #324E97;
-  animation: rotationFish 2.05s infinite ease-out;
+  animation: rotationFish 2.15s infinite ease-out;
 
 }
 
