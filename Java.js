@@ -108,30 +108,41 @@ white_car.style.width = width + "px";
       clickable: true
     },
 
+    spaceBetween: 30,
     observer: true,
     observerParents: true,
     observerSlideChildren: true,
-    simulateTouch: false,
+
 
     breakpoints: {
         1079: {
             slidesPerView:3,
+            freeMode: false,
+            simulateTouch: false,
         },
 
         917: {
             slidesPerView:2.6,
+            freeMode: false,
+            simulateTouch: false,
         }, 
 
         768: {
             slidesPerView:2,
+            freeMode: false,
+            simulateTouch: false,
         },
 
         500: {
             slidesPerView:1.5,
+            freeMode: true,
+            simulateTouch: true,
         },
 
         350: {
-            slidesPerView:1,
+            slidesPerView:0.9,
+            freeMode: true,
+            simulateTouch: true,
         }
     }
 });

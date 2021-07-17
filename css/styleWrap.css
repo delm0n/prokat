@@ -108,7 +108,7 @@ nav {
 
 .cards_block {
     display: flex;
-    column-gap: 20px;
+    /* column-gap: 20px; */
     padding-bottom: 10px;
     transition: all 1s ease 0s;
 
@@ -373,15 +373,7 @@ margin-top: 26px;
 display: none;
 }
 
-.animation {
-    opacity: 0;
-    transition: all 1s ease 0s;
-}
 
-.active_anim{
-    transform: translate(0px, 0px);
-    opacity: 1;
-}
 
 
 @media (max-width: 425px) {
@@ -402,11 +394,12 @@ display: none;
         background-size: cover ;
         width: 250px;
         height: 172.4px;
-        margin: 15px auto;
+        margin: 15px 19px;
     }
 
     .rating{
         margin: 0px auto;
+        justify-content: center;
     }
 }
 
@@ -429,10 +422,6 @@ display: none;
     }
     .contain_slider_scroll {
        display: none;
-    }
-
-    .cards_block {
-        column-gap: 30px;
     }
 
     .whiteBlock__container{
