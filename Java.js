@@ -1,4 +1,62 @@
-const swiper = new Swiper('.hiddenoverflow', {
+ window.onload = function () {
+    const white_car = document.querySelector('.blockWithImg')
+    const width_container = document.querySelector('.witeCar__container').clientWidth;
+    let html_page = 0
+    let width =0;
+    myScreen()
+    //вызывается при изменении размера экрана
+    window.addEventListener("resize", myScreen())
+
+
+    window.setTimeout(function () {
+        document.querySelector('.place_for_blur').classList.remove("my_blur");
+        document.querySelector('.loaderArea').classList.add("loader_stop");
+    }, 2000);
+
+
+   }
+
+function myScreen() {
+    html_page = document.querySelectorAll('html')[0].offsetWidth;
+    console.log(html_page);
+    
+    if (html_page < 2510 && html_page > 1068) {     
+        width = (html_page  - 1068) / 2 +  width_container ; 
+    } 
+    else {
+        if (window.innerWidth > 2510) {
+            width = 1237;
+        }
+    }
+    
+    white_car.style.width = width + "px"; 
+}
+
+
+const white_car = document.querySelector('.blockWithImg')
+const width_container = document.querySelector('.witeCar__container').clientWidth;
+let html_page = 0
+
+
+let width =0;
+//вызывается при изменении размера экрана
+window.addEventListener("resize", function(event) {
+html_page = document.querySelectorAll('html')[0].offsetWidth;
+console.log(html_page);
+
+if (html_page < 2510 && html_page > 1068) {     
+    width = (html_page  - 1068) / 2 +  width_container ; 
+} 
+else {
+    if (window.innerWidth > 2510) {
+        width = 1237;
+    }
+}
+
+white_car.style.width = width + "px"; 
+})
+  
+  const swiper = new Swiper('.hiddenoverflow', {
     navigation: {
         nextEl: '.str__right',
         prevEl: '.str__left',
@@ -274,26 +332,5 @@ show__more.addEventListener('click', () => {
 })
 
 
-const white_car = document.querySelector('.blockWithImg')
-const width_container = document.querySelector('.witeCar__container').clientWidth;
-let html_page = 0
 
-
-let width =0;
-//вызывается при изменении размера экрана
-window.addEventListener("resize", function(event) {
-html_page = document.querySelectorAll('html')[0].offsetWidth;
-console.log(html_page);
-
-if (html_page < 2510 && html_page > 1068) {     
-    width = (html_page  - 1068) / 2 +  width_container ; 
-} 
-else {
-    if (window.innerWidth > 2510) {
-        width = 1237;
-    }
-}
-
-white_car.style.width = width + "px"; 
-})
 
