@@ -198,7 +198,7 @@ overflow: hidden;
 }
 
 main {
-    background-image: url(img/main2.png);
+    background-image: url(../img/main2.png);
     background-repeat: no-repeat;
     background-position: center;
     margin: 0px auto;
@@ -365,8 +365,12 @@ margin-top: 26px;
     width: 1237px;
     height: 821px;
     position: absolute;
-    background-image: url(img/whitecar.png);
+    background-image: url(../img/whitecar.png);
     background-size: cover;
+}
+
+.white {
+display: none;
 }
 
 @media (max-width: 768px) {

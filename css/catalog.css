@@ -105,6 +105,7 @@ color: rgba(3, 23, 75, 0.7);
 
 .hideCard {
     display: none;
+    
 }
 
 .show__hideCard {    
@@ -119,8 +120,6 @@ color: rgba(3, 23, 75, 0.7);
 }
 
 .catalog__shift {
-    /* display: inline-block; */
-    /* justify-content: center; */
     justify-content: start;
 
 }
@@ -135,24 +134,32 @@ color: rgba(3, 23, 75, 0.7);
 
 .card_block_catalog{
     opacity: 1;
-    transition: all 0.7s ease 0s;
 }
 
 .hideAllInputZero__1 {
     opacity: 0;
-    transition: all 0.7s ease 0s;
+    transition: opacity 0.4s ease 0s;
 }
 
 .hideAllInputZero__2 {
     display: none;
+
 }
+
+.hideAllInputZero__3 {
+    /* opacity: 0;
+    transition: opacity 0.4s ease 0s; */
+    animation: opacZero_One 0.4s;
+}
+
+
 
 .IputZero{
     display: none;
     font-family: "Montserrat";
 font-style: normal;
 font-weight: normal;
-font-size: 15px;
+font-size: 19px;
 line-height: 18px;
 
 color: rgba(3, 23, 75, 0.6);
@@ -171,7 +178,7 @@ color: rgba(3, 23, 75, 0.6);
       
     }
     100% {
-      transform: rotate(90deg);
+      transform: rotate(180deg);
       /* opacity: 1; */
     }
   }
@@ -205,4 +212,22 @@ color: rgba(3, 23, 75, 0.6);
 .card_block_catalog:hover .imgContCardBg{
     display: block;
 } 
+}
+
+@keyframes opacOne_Zero {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes opacZero_One {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

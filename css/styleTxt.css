@@ -49,7 +49,7 @@ a {
 }
 
 main {
-    background-image: url(img/main2.png);
+    background-image: url(../img/main2.png);
     /* background: rgba(23, 84, 241, 0.55), url(img/main.png); */
 }
 
@@ -250,6 +250,7 @@ background-color: #fff;
     width: 70px;
     border-radius: 100%;
     border: 1px solid var(--Iarche);
+    
     background-color:var(--Iarche) ;
     transition: all 0.2s ease 0s;
     position: relative;
@@ -261,43 +262,49 @@ background-color: #fff;
     cursor: pointer;
 }
 
-.str__left {
-    background-color:white ;
-    
+.swiper-button-disabled {
+    background-color: white;
 }
 
-/* .rott:hover {
-    background-color: ;
-    transition: all 0.1s ease 0s;
-} */
+.str__left .str_cont .white, .str__right .str_cont .white{
+    display: block; 
+}
+.str__left .str_cont .blue, .str__right .str_cont .blue{
+    display: none;
+}
+
+
+.swiper-button-disabled .str_cont .white{
+display: none;
+}
+
+.swiper-button-disabled .str_cont .blue{
+    display: block;
+}
+
+
 
 .rott:active {
     top: 2px;
     transition: all 0.6s ease 0s;
 }
 
-.img-svg path{
+/* .img-svg path{
     fill: white;
-}
+} */
 
 .str_cont {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
-    margin-right: 5px;
-    margin-bottom: 21px;
+    margin-right: 4px;
+    margin-bottom: 20.5px;
 }
 
 .rott_rotate {
     transform: rotate(180deg);
 }
 
-.mini__rott {
-    height: 12px;
-    width: 12px;
-    border-radius: 100%;
-    background-color: #92B0FD;
-}
 
 .mini__rott:hover{
     background-color:var(--Iarche) ;
@@ -500,9 +507,7 @@ align-items: center;
 column-gap: 10px;
 color: #FFFFFF;
 }
-/* footer a {
-    color: #FFFFFF;
-} */
+
 
 .footer__block2 div, .footer__block3 div{
 text-decoration: none;
@@ -562,6 +567,10 @@ font-size: 18px;
 line-height: 22px;
 color: var(--IconColor);
 }
+
+/* .icon2-right{
+    position: absolute;
+} */
 
 @keyframes rotationFish {
     0% {

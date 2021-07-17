@@ -61,7 +61,7 @@ for (let i = 0; i<title_block.length; i++) {
         if (e.target.dataset.title === "1" || e.target.dataset.title === "2" || e.target.dataset.title === "3" ) 
             {
                 currTab = e.target.dataset.title - 1;
-                console.log(currTab)
+                // console.log(currTab)
                 ChangeActiveTitle(currTab)
             }
 
@@ -117,21 +117,16 @@ let count_cards = document.querySelectorAll('.swiper-pagination-bullet').length 
 // console.log(count_cards);
 let count_left =0, count_right =0;
 let left_check = false;
+console.log(left.getAttribute("aria-disabled"));
 
 left.addEventListener('click', () => {
-    // console.log("left click");
-    count_right--;
-    // console.log(count_right);
-    CheckPerk()
+
     
 })
 
 right.addEventListener('click', () => {
     
-    left_check = true;
-    count_right++;
-    CheckPerk();
-    // console.log(count_right);
+
 })
 
 
@@ -193,7 +188,7 @@ function hello(){
 
 function timeEnterMark() {
     document.querySelector('.search_form').placeholder = "Введите марку машины";
-    console.log(2);
+    // console.log(2);
 }
 
 function vocabulary() {
@@ -205,13 +200,13 @@ function vocabulary() {
     }
      
     else {
-        if (input_value == "лада") 
+        if (input_value == "лада" || input_value == "lada") 
         {input_value = "lada";}
         else {
-            if (input_value == "бмв") 
+            if (input_value == "бмв" || input_value == "bmw") 
             {input_value = "bmw";}
             else {
-                if (input_value == "фиат") 
+                if (input_value == "фиат" || input_value == "fiat") 
                 {input_value = "fiat";}
                 else {
                     if (input_value == "фольксваген" || input_value == "volkswagen") 
@@ -222,11 +217,12 @@ function vocabulary() {
                         else {
                                 for (let i = 0; i<cards_array.length; i++) {
                                     cards_array[i].classList.add('hideAllInputZero__1');
-                                    setTimeout(cards_array[i].classList.add('hideAllInputZero__2'),700);
+                                    setTimeout( function() { cards_array[i].classList.add('hideAllInputZero__2')},400);
                                 }
                                 icon_search.classList.add('hideCard');
                                 icon_close.classList.add('show__close');
-                                inputZero.classList.add('IputZero_show');
+                                setTimeout( function() { inputZero.classList.add('IputZero_show')},400);
+                                
                             }
                         }
                     }
@@ -264,6 +260,14 @@ function doSearch() {
     }
 }
 
+function hideCard(el) {
+    for (let i = 0; i<cards_array.length; i++) {
+        cards_array[i].classList.add('hideCard');
+
+    }
+    cards_array[el].classList.add('show__hideCard');
+}
+
 function checker() {
     if (check_morebtn == false) {
         for(let i = 0; i <show__more__block.length; i++) {
@@ -289,17 +293,15 @@ function close_f() {
     for (let i = 0; i<cards_array.length; i++) {
         cards_array[i].classList.remove('hideCard');
         cards_array[i].classList.remove('show__hideCard');
+        cards_array[i].classList.remove('hideAllInputZero__2');
         cards_array[i].classList.remove('hideAllInputZero__1');
-        setTimeout(cards_array[i].classList.remove('hideAllInputZero__2'),400);
+        cards_array[i].classList.add('hideAllInputZero__3')
+        // setTimeout(function() {} ,400);
+        // cards_array[i].classList.remove('hideAllInputZero__1');
+        // setTimeout(cards_array[i].classList.remove('hideAllInputZero__2'),400);
     }   
 }
 
-function hideCard(el) {
-    for (let i = 0; i<cards_array.length; i++) {
-        cards_array[i].classList.add('hideCard');
-    }
-    cards_array[el].classList.add('show__hideCard');
-}
 
 
 icon_search.addEventListener('click', () => {
