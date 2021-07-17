@@ -111,61 +111,6 @@ formTabs_container.addEventListener('click', e => {
 
 
 
-const left = document.querySelector('.str__left');
-const right = document.querySelector('.str__right');
-let count_cards = document.querySelectorAll('.swiper-pagination-bullet').length - 1;
-// console.log(count_cards);
-let count_left =0, count_right =0;
-let left_check = false;
-console.log(left.getAttribute("aria-disabled"));
-
-left.addEventListener('click', () => {
-
-    
-})
-
-right.addEventListener('click', () => {
-    
-
-})
-
-
-function CheckPerk() {
-
-    if (count_right == "0") {
-        left_check = false
-    } 
-    else {
-    }
-
-    if (left_check == false) {
-        left.style.backgroundColor = "white";
-        left.style.border = "1px solid #0A5CD2";  
-    }
-    else {
-        left.style.backgroundColor = "#0A5CD2";
-    }
-
-
-    if (count_right >= count_cards) {
-        right.style.backgroundColor = "white";
-        right.style.border = "1px solid #0A5CD2";  
-        count_right = count_cards;
-    }
-    else {
-        right.style.backgroundColor = "#0A5CD2";
-    }
-
-}
-
-
-
-
-
-
-
-
-
 //========================================CATALOG
 const show__more = document.querySelector('.show__more'),
  show__more__block = document.querySelectorAll('.active__after__click__btn'),
@@ -188,7 +133,6 @@ function hello(){
 
 function timeEnterMark() {
     document.querySelector('.search_form').placeholder = "Введите марку машины";
-    // console.log(2);
 }
 
 function vocabulary() {
@@ -296,9 +240,6 @@ function close_f() {
         cards_array[i].classList.remove('hideAllInputZero__2');
         cards_array[i].classList.remove('hideAllInputZero__1');
         cards_array[i].classList.add('hideAllInputZero__3')
-        // setTimeout(function() {} ,400);
-        // cards_array[i].classList.remove('hideAllInputZero__1');
-        // setTimeout(cards_array[i].classList.remove('hideAllInputZero__2'),400);
     }   
 }
 
@@ -331,35 +272,28 @@ show__more.addEventListener('click', () => {
 
 }
 })
-   
-if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-    console.log('this is a touch device');
-  } else {
-    console.log('this is not a touch device');
-    document.body.classList.add('no-touch');
-  }
 
 
 const white_car = document.querySelector('.blockWithImg')
 const width_container = document.querySelector('.witeCar__container').clientWidth;
-const html_page = document.querySelectorAll('html')[0].offsetWidth;
-console.log(html_page);
+let html_page = 0
+
 
 let width =0;
+//вызывается при изменении размера экрана
+window.addEventListener("resize", function(event) {
+html_page = document.querySelectorAll('html')[0].offsetWidth;
+console.log(html_page);
 
-    if (window.innerWidth < 2510 && window.innerWidth > 1490) {     
-        width = (html_page  - 1068) / 2 +  width_container ; 
-    } 
-    else {
-        if (window.innerWidth < 1490 && window.innerWidth > 1068) {
-            width = (html_page  - 1068) / 2 +  width_container ;  
-        }
-        else {
-            if (window.innerWidth > 2510) {
-                width = 1237;
-            }
-        }
+if (html_page < 2510 && html_page > 1068) {     
+    width = (html_page  - 1068) / 2 +  width_container ; 
+} 
+else {
+    if (window.innerWidth > 2510) {
+        width = 1237;
     }
-white_car.style.width = width + "px"; 
+}
 
+white_car.style.width = width + "px"; 
+})
 

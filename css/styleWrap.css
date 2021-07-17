@@ -299,8 +299,8 @@ margin-top: 26px;
 }
 
 .swiper-slide {
-    min-width: 340px;
-    max-width: 340px;
+    min-width: 336px;
+    max-width: 336px;
 }
 
 .swiper-pagination {
@@ -373,6 +373,33 @@ margin-top: 26px;
 display: none;
 }
 
+@media (max-width: 425px) {
+    .imgWhiteBlockContainer {
+        display: none;
+    }
+  
+    .swiper-slide {
+        min-width: 288px;
+        max-width: 340px;
+    }
+
+    .infoIcons{
+        column-gap: 10px;
+    }
+
+    .imgContCard {
+        background-size: cover ;
+        width: 250px;
+        height: 172.4px;
+        margin: 15px auto;
+    }
+
+    .rating{
+        margin: 0px auto;
+    }
+}
+
+
 @media (max-width: 768px) {
     .geo, .num {
         display: none;
@@ -395,6 +422,19 @@ display: none;
 
     .cards_block {
         column-gap: 30px;
+    }
+
+    .whiteBlock__container{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        /* margin-top: 30px; */
+        margin: 30px 20px 0px 20px;
+    }
+
+    .instruction__whiteBlock{
+        /* box-sizing: border-box; */
+        padding: 39px 37px;
     }
 
     
