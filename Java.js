@@ -23,7 +23,7 @@ window.onbeforeunload = function () {
 
 function myScreen() {
     html_page = document.querySelectorAll('html')[0].offsetWidth;
-    console.log(html_page);
+    // console.log(html_page);
     
     if (html_page < 2510 && html_page > 1068) {     
         width = (html_page  - 1068) / 2 +  width_container ; 
@@ -52,7 +52,7 @@ let width =0;
 //вызывается при изменении размера экрана
 window.addEventListener("resize", function(event) {
 html_page = document.querySelectorAll('html')[0].offsetWidth;
-console.log(html_page);
+// console.log(html_page);
 
 if (html_page < 2510 && html_page > 1068) {     
     width = (html_page  - 1068) / 2 +  width_container ; 

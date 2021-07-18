@@ -169,7 +169,108 @@ color: rgba(3, 23, 75, 0.6);
     display: block;
 }
 
+ul {
+    list-style: none; 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 40px;
+    row-gap: 15px;
+    padding: 0;
+    margin: 0;
+  }
 
+  .topmenu > li {
+    display: block;
+    /* margin-right: 40px; */
+    position: relative;
+    cursor: default;
+  }
+  .topmenu > li:last-child {
+    margin-right: 0;
+  }
+
+
+  .submenu {
+      display: block;
+    position: absolute;
+    /* filter: blur(10px); */
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .submenu {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(3px);
+        background-color: rgba(3, 23, 75, 0.4);
+    }
+}
+
+  .four .submenu {
+    -webkit-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+    
+  }
+  .four ul li:hover .submenu {
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+
+  .four ul li img {
+    transform: rotate(0deg);
+    transition: transform 0.5s ease 0s;
+  }
+
+  .four ul li:hover img {
+    transform: rotate(90deg);
+    transition: transform 0.5s ease 0s;
+  }
+
+
+.containerFor_List {
+    font-family: "Montserrat";
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 18px;
+
+color: rgba(3, 23, 75, 0.6);
+}
+
+.block__withSubmenu{
+ border-bottom: 2px solid rgba(3, 23, 75, 0.4);
+ padding-bottom: 8px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ min-width: 213px;
+}
+
+.submenu__item{
+    margin: 5px 0px;
+    color: white;
+    cursor: pointer;
+}
+
+.containerFor_List{
+    padding: 0px 20px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
 
 @keyframes rotation {
     0% {
@@ -192,6 +293,9 @@ color: rgba(3, 23, 75, 0.6);
 
 @media (max-width:768px) {
 
+.containerFor_List{
+    display: none;
+}
     .catalog {
         margin-top: 38px;
     }

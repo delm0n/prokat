@@ -59,6 +59,10 @@ main {
     position: relative;
 }
 
+.title_block{
+margin-bottom: 5px;
+    }
+
 .title_block::after{
 content: '';
 width: 0;
@@ -74,24 +78,6 @@ transition: width 0.3s ease-in-out 0s;
 .title_block_active::after{
     width: 100%;
 }
-/* .titleInSection_activePage{
-    transition: all 0.2s ease 0s;
-
-    border-bottom: 2px solid var(--MainColor);
-} */
-
-/* .titleInSection_page::after {
-content: '';
-width: 0;
-position: absolute;
-left: 0;
-right: 0;
-bottom: -1px;
-height: 2px;
-background-color: var(--MainColor);
-transition: width 0.4s ease-in-out 0s;
-} */
-
 
 .content_page {
     display: none;
