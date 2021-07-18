@@ -160,10 +160,11 @@ color: #00045F;
 }
 
 .line_card {
-    height: 1px;
+    height: 2px;
     width: 242px;
     margin: 20px auto;
-    background: rgba(3, 23, 75, 0.6);
+    /* background: rgba(3, 23, 75, 0.6); */
+    background: rgba(3, 23, 75, 0.4);
 }
 
 .raiting_decr {

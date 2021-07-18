@@ -118,10 +118,7 @@ white_car.style.width = width + "px";
 });
 
 
-
 const content_page_all = document.querySelectorAll('.content_page');
-
-
 const title_block = document.querySelectorAll('.title_block')
 
 
@@ -204,6 +201,41 @@ const show__more = document.querySelector('.show__more'),
 let input_value = "";
 let check_morebtn = false;
 
+
+const subclass = document.querySelectorAll('.subclass');
+let subclassCURR = 0;
+// for (let i = 0; i<subclass.length; i++) {
+//     subclass[i].addEventListener('click', e => {
+//         if (e.target.dataset.subletter === "b" || e.target.dataset.subletter === "c" || e.target.dataset.subletter === "d" || e.target.dataset.subletter === "j") 
+//              {
+//                 subclassCURR = e.target.dataset.subletter;
+//                 console.log(subclassCURR);
+
+
+//             for (let j =0; j < cards_array.length; j++) 
+//             {
+//                 cards_array[j].classList.add('hideAllInputZero__1');
+//                 setTimeout( function() { cards_array[j].classList.add('hideAllInputZero__2')},400);
+//                 cards_array[j].classList.remove('displayBlock');
+//                 if (cards_array[j].dataset.letter == subclassCURR){
+//                     // cards_array[j].classList.remove('hideAllInputZero__2');
+//                     cards_array[j].classList.remove('hideAllInputZero__1');
+//                     cards_array[j].classList.add('displayBlock');
+
+//                     if (check_morebtn == false) {
+//                         for(let kk = 0; kk <show__more__block.length; kk++) {
+//                         show__more__block[kk].classList.remove('displayBlock'); 
+//                         }
+//                     }
+//                 }
+//             }
+//              }
+
+//     })
+// }
+
+
+
 function hello(){
    if ( show__more.textContent == "Перейти в каталог" ) {
     show__more.setAttribute("onclick", "window.open('hello.html')");
@@ -218,7 +250,6 @@ function vocabulary() {
 
     if (input_value == "") {
         document.querySelector('.search_form').placeholder = "Вы ничего не ввели!";
-        
         setTimeout(timeEnterMark, 2000)
     }
      
@@ -347,7 +378,7 @@ show__more.addEventListener('click', () => {
     show__more__block[i].classList.add('was_time_dispay');
     setTimeout(show__more__block[i].classList.add('click_was'), 100);
     search();
-
+    // show__more__block[i].classList.add('displayBlock');
 
 }
 })
