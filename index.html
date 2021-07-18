@@ -16,6 +16,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="icon" href="img/ico.svg" type="image/svg">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Прокат</title>
 </head>
 
@@ -113,7 +114,8 @@
         </main>
 
         <div class="gradient">
-            <section class="items_pop">
+            <section class="items_pop" data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom">
 
                 <div class="titleInSection">
                     <h2 class="titleInSection_page" >
@@ -454,7 +456,8 @@
 
             </section> 
 
-            <section class="catalog animation">
+            <section class="catalog " data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom">
                 <div class="titleInSection"><h2>Каталог</h2></div>
                 <div class="containerForSearch">
                     <div class="containerForSearch__2">
@@ -1073,10 +1076,11 @@
 
             </section>
 
-            <section id="instruction" class="instruction animation">
+            <section id="instruction" class="instruction " >
                 <div class="titleInSection"><h2>Как заказать автомобиль?</h2> </div>
                 <div class="flex_whiteContainer">
-                    <div class="whiteBlock__container">
+                    <div class="whiteBlock__container" data-aos="fade-up"
+                    data-aos-anchor-placement="center-bottom">
                         <div class="instruction__whiteBlock anim_class">
                             <div class="imgWhiteBlockContainer"><img class="user_static" src="img/user.png" alt="user"><img class="user_totate" src="img/fish.png" alt="fish"></div>
                             <div class="text__whiteBlock ">Заполните форму регистрации, которая находится на верху нашего сайта</div>
@@ -1090,14 +1094,15 @@
                             <div class="text__whiteBlock ">Договоритесь о месте встречи и заберите автомобиль</div>
                         </div>
                     </div>
-                    <div class="witeCar__container">
+                    <div class="witeCar__container" >
                         <!-- <div><img src="img/whitecar.png" alt="whitecar"></div> -->
-                            <div class="blockWithImg"></div>
+                        <div class="blockWithImg" ></div>
                     </div>
                 </div>
             </section>
 
-            <section id="about_our" class="about_our">
+            <section id="about_our" class="about_our" data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom">
                 <div class="discounts">
                     <div class="name__about">СКИДКИ</div>
                     <div class="decrip__about">Мы делаем прокат авто
@@ -1152,10 +1157,13 @@
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!-- <script src="jqver.js"></script> -->
+    <script src="jqver.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="Java.js"></script>
-    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     
 </body>
 

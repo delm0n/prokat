@@ -12,9 +12,14 @@
         document.querySelector('.place_for_blur').classList.remove("my_blur");
         document.querySelector('.loaderArea').classList.add("loader_stop");
     }, 2000);
-
-
+   
+    
    }
+
+   
+window.onbeforeunload = function () {
+        window.scrollTo(0,0);
+    };
 
 function myScreen() {
     html_page = document.querySelectorAll('html')[0].offsetWidth;
@@ -33,44 +38,9 @@ function myScreen() {
 }
 
 
-// const animItems = document.querySelectorAll('.animation');
+const animItems = document.querySelectorAll('.animation');
 // window.addEventListener('scroll', animOnScroll())
 
-
-// function animOnScroll(el) {
-//     // console.log(pageYOffset);
-//     for (let i = 0; i < animItems.length; i++) {
-//         let animItem = animItems[i];
-//         console.log(animItems);
-//         let animItemHeight = animItem.offsetHeight;
-//         let animItemOffset = offset(animItem).top;
-//         const k = 4;        
-//         let animItemDoing = window.innerHeight - animItemHeight / k;
-
-//         //если блочный элемент больше окна браузера
-//         if (animItemHeight > window.innerHeight) {
-//             animItemDoing = window.innerHeight - window.innerHeight / k;
-//         }
-
-//         //присваивание класса active_anim в видимой области
-//         if ((pageYOffset > animItemOffset - animItemDoing) && (pageYOffset < (animItemOffset + animItemHeight))) {
-//             animItems[i].classList.add('active_anim'); }
-//          else {
-
-            
-//             //если всегда нужны анимации:
-//             // animItem.classList.remove('active_anim');
-            
-//         }
-//     }
-// }
-
-// function offset(el) {
-//     const rect = el.getBoundingClientRect(),
-//     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-//     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-//     return { top: rect.top + scrollTop, left:rect.left + scrollLeft,}
-// }
 
 
 const white_car = document.querySelector('.blockWithImg')
@@ -112,7 +82,7 @@ white_car.style.width = width + "px";
     observer: true,
     observerParents: true,
     observerSlideChildren: true,
-
+    speed:1000,
 
     breakpoints: {
         1079: {
