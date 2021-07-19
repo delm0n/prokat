@@ -13,7 +13,7 @@
 .active__after__click__btn {
     display: none;
     /* margin-top: 30px; */
-    visibility: hidden;   
+    /* visibility: hidden;    */
     opacity: 0;
     transition: all 0.7s ease 0s;
 }
@@ -150,12 +150,14 @@ color: rgba(3, 23, 75, 0.7);
     /* opacity: 0;
     transition: opacity 0.4s ease 0s; */
     animation: opacZero_One 0.4s;
+    /* animation-fill-mode: forwards; */
 }
 
 
 
 .IputZero{
     display: none;
+    /* opacity: 0; */
     font-family: "Montserrat";
 font-style: normal;
 font-weight: normal;

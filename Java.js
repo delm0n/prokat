@@ -189,51 +189,63 @@ formTabs_container.addEventListener('click', e => {
 
 //========================================CATALOG
 const show__more = document.querySelector('.show__more'),
- show__more__block = document.querySelectorAll('.active__after__click__btn'),
- btn_search = document.querySelector('.imgContSearch'),
  icon_search = document.querySelector('.imgSearch'),
  icon_close = document.querySelector('.close'),
  cards_array = document.querySelectorAll('.card_block_catalog'),
- catalog__cardbox__active = document.querySelectorAll('.catalog__cardbox__active'),
- inputZero = document.querySelector('.IputZero');
+ inputZero = document.querySelector('.IputZero'),
+ before_click = document.querySelectorAll('.active__before__click__btn'),
+ after_click = document.querySelectorAll('.active__after__click__btn');
 
- let was_search = false;
+let was_search = false;
 let input_value = "";
 let check_morebtn = false;
 
 
 const subclass = document.querySelectorAll('.subclass');
 let subclassCURR = 0;
-// for (let i = 0; i<subclass.length; i++) {
-//     subclass[i].addEventListener('click', e => {
-//         if (e.target.dataset.subletter === "b" || e.target.dataset.subletter === "c" || e.target.dataset.subletter === "d" || e.target.dataset.subletter === "j") 
-//              {
-//                 subclassCURR = e.target.dataset.subletter;
-//                 console.log(subclassCURR);
 
+for (let i = 0; i<subclass.length; i++) {
+    subclass[i].addEventListener('click', e => {
+        if (e.target.dataset.subletter === "b" || e.target.dataset.subletter === "c" || e.target.dataset.subletter === "d" || e.target.dataset.subletter === "j") 
+            {
+                subclassCURR = e.target.dataset.subletter;
+                console.log(subclassCURR);
+                reText_filter(subclassCURR);
+                filterSearchLetter();
+            }
+        else {
+            if (e.target.dataset.all === "all") {
+                console.log("all");
+                shower();
+                document.querySelector('.subclass_block').textContent = "Класс автомобиля";
+                for (let i = 0; i<cards_array.length; i++) {
+                    cards_array[i].classList.remove('hideAllInputZero__1');
+                    cards_array[i].classList.add('hideAllInputZero__3');
+                }  
+            }
+        }    
 
-//             for (let j =0; j < cards_array.length; j++) 
-//             {
-//                 cards_array[j].classList.add('hideAllInputZero__1');
-//                 setTimeout( function() { cards_array[j].classList.add('hideAllInputZero__2')},400);
-//                 cards_array[j].classList.remove('displayBlock');
-//                 if (cards_array[j].dataset.letter == subclassCURR){
-//                     // cards_array[j].classList.remove('hideAllInputZero__2');
-//                     cards_array[j].classList.remove('hideAllInputZero__1');
-//                     cards_array[j].classList.add('displayBlock');
+    })
+}
 
-//                     if (check_morebtn == false) {
-//                         for(let kk = 0; kk <show__more__block.length; kk++) {
-//                         show__more__block[kk].classList.remove('displayBlock'); 
-//                         }
-//                     }
-//                 }
-//             }
-//              }
+function reText_filter(el) {
+    for (let i = 0; i<subclass.length; i++) {
+        if (subclass[i].dataset.subletter == el) {
+            document.querySelector('.subclass_block').textContent = subclass[i].textContent;
+        }
+    }
+}
 
-//     })
-// }
-
+show__more.addEventListener('click', () => {
+    check_morebtn = true;
+    show__more.textContent = "Перейти в каталог"
+    hello(); 
+    if (was_search == false) {
+        shower();
+    }
+    checker_morebtn();
+    filterSearchLetter()
+})
 
 
 function hello(){
@@ -250,7 +262,7 @@ function vocabulary() {
 
     if (input_value == "") {
         document.querySelector('.search_form').placeholder = "Вы ничего не ввели!";
-        setTimeout(timeEnterMark, 2000)
+        setTimeout(timeEnterMark, 2000);
     }
      
     else {
@@ -269,14 +281,11 @@ function vocabulary() {
                         if (input_value == "мильтсубиси" || input_value == "mitsubishi" || input_value == "митсубиси") 
                         {input_value = "mitsub";}
                         else {
-                                for (let i = 0; i<cards_array.length; i++) {
-                                    cards_array[i].classList.add('hideAllInputZero__1');
-                                    setTimeout( function() { cards_array[i].classList.add('hideAllInputZero__2')},400);
-                                }
                                 icon_search.classList.add('hideCard');
                                 icon_close.classList.add('show__close');
-                                setTimeout( function() { inputZero.classList.add('IputZero_show')},400);
-                                
+                                inputZero.classList.add('IputZero_show');
+                                inputZero.classList.add('hideAllInputZero__3');
+                                hider();
                             }
                         }
                     }
@@ -285,78 +294,155 @@ function vocabulary() {
         }
 }    
 
+function doSearch() {
+    for (let i = 0; i<before_click.length; i++) 
+    {
+        if (before_click[i].dataset.marks == input_value) {
+            
+            before_click[i].classList.remove('hideAllInputZero__1');
+            before_click[i].style.display = "block";
+            before_click[i].classList.add('hideAllInputZero__3');
+        }
+    }
+}
+
+function checker_morebtn() {
+    for (let i = 0; i<cards_array.length; i++) {
+        cards_array[i].style.display = "none";
+        cards_array[i].classList.remove('hideAllInputZero__3');
+    }
+
+
+
+    doSearch();
+    if (check_morebtn == true) {
+        for (let i = 0; i<after_click.length; i++) 
+        {
+            if (after_click[i].dataset.marks == input_value) {
+                after_click[i].style.display = "block";
+                after_click[i].classList.add('hideAllInputZero__3');
+            }
+        }
+    }
+
+}
+
+function filterSearchLetter() {
+    for (let i = 0; i<cards_array.length; i++) {
+        cards_array[i].style.display = "none";
+        cards_array[i].classList.remove('hideAllInputZero__3');
+    }
+    for (let i = 0; i<before_click.length; i++) 
+    {
+        if (before_click[i].dataset.letter == subclassCURR) {
+            before_click[i].classList.remove('hideAllInputZero__1');
+            before_click[i].style.display = "block";
+            before_click[i].classList.add('hideAllInputZero__3');
+        }
+
+    }
+
+    if (check_morebtn == true) {
+        for (let i = 0; i<after_click.length; i++) 
+        {
+            if (after_click[i].dataset.letter == subclassCURR) {
+                after_click[i].style.display = "block";
+                after_click[i].classList.add('hideAllInputZero__3');
+            }
+        }
+    }
+}
+
+
+function hider() {
+    for (let i = 0; i<cards_array.length; i++) {
+        cards_array[i].classList.remove('hideAllInputZero__3');
+    }  
+
+    if (check_morebtn == false) {
+        for (let i = 0; i<before_click.length; i++) {
+        before_click[i].classList.add('hideAllInputZero__1');
+        setTimeout( function() { before_click[i].style.display = "none"},400);
+        }
+    }
+    else {
+        for (let i = 0; i<before_click.length; i++) {
+            before_click[i].classList.add('hideAllInputZero__1');
+            setTimeout( function() { before_click[i].style.display = "none"},400);
+            }
+
+        for (let i = 0; i<after_click.length; i++) {
+        after_click[i].classList.add('hideAllInputZero__1');
+        setTimeout( function() { after_click[i].style.display = "none"},400);
+        }
+    }   
+}
+
+function shower() {
+    if (check_morebtn == false) {
+        for (let i = 0; i<before_click.length; i++) {
+        
+        before_click[i].style.display = "block";
+        before_click[i].classList.add('hideAllInputZero__3');
+        }
+    }
+    else {
+        for (let i = 0; i<before_click.length; i++) {
+            before_click[i].style.display = "block";
+            before_click[i].classList.add('hideAllInputZero__3');
+            after_click[i].style.display = "block";
+            after_click[i].classList.add('hideAllInputZero__3');
+        }
+    }
+
+
+}
+
+
 
 
 function search() {
 input_value = document.querySelector('.search_form').value.toLowerCase();
-
 vocabulary();
-doSearch();
-checker();
+checker_morebtn();
 
     if (input_value != "") { 
         icon_search.classList.add('hideCard');
-        for (let i = 0; i <catalog__cardbox__active.length; i++) {
-        catalog__cardbox__active[i].classList.add('catalog__shift');
-        }
         icon_close.classList.add('show__close');
     }
 }
 
-
-function doSearch() {
-
-    for (let i = 0; i<cards_array.length; i++) 
-    {
-        if (cards_array[i].dataset.marks == input_value) {
-           hideCard(i);
+function enterClick() {
+    search();
+    if (input_value == "") {
+        for (let i = 0; i<cards_array.length; i++) {
+            cards_array[i].style.display = "block";
         }
     }
-}
-
-function hideCard(el) {
-    for (let i = 0; i<cards_array.length; i++) {
-        cards_array[i].classList.add('hideCard');
-
-    }
-    cards_array[el].classList.add('show__hideCard');
-}
-
-function checker() {
-    if (check_morebtn == false) {
-        for(let i = 0; i <show__more__block.length; i++) {
-        show__more__block[i].classList.remove('show__hideCard'); }
-    }
-}
-
-
-function enterClick() {
-    search()
 }
 
 function close_f() {
-    was_search = false;
-    for (let i = 0; i <catalog__cardbox__active.length; i++) {
-        catalog__cardbox__active[i].classList.remove('catalog__shift');
-        }
     icon_search.classList.remove('hideCard');
     icon_close.classList.remove('show__close');
     document.querySelector('.search_form').value = "";
     inputZero.classList.remove('IputZero_show'); 
-
+    shower();
+    document.querySelector('.subclass_block').textContent = "Класс автомобиля";
     for (let i = 0; i<cards_array.length; i++) {
-        cards_array[i].classList.remove('hideCard');
-        cards_array[i].classList.remove('show__hideCard');
-        cards_array[i].classList.remove('hideAllInputZero__2');
         cards_array[i].classList.remove('hideAllInputZero__1');
-        cards_array[i].classList.add('hideAllInputZero__3')
+        cards_array[i].classList.add('hideAllInputZero__3');
     }   
 }
 
 
 
 icon_search.addEventListener('click', () => {
-    search()
+    search();
+    if (input_value == "") {
+        for (let i = 0; i<cards_array.length; i++) {
+            cards_array[i].style.display = "block";
+        }
+    }
 })
 
 icon_close.addEventListener('click', () => {   
@@ -370,18 +456,6 @@ document.querySelector('.search_form').onkeypress = function (el) {
 }
 
 
-show__more.addEventListener('click', () => {
-    check_morebtn = true;
-    show__more.textContent = "Перейти в каталог"
-    hello()
-    for(let i = 0; i <show__more__block.length; i++) {
-    show__more__block[i].classList.add('was_time_dispay');
-    setTimeout(show__more__block[i].classList.add('click_was'), 100);
-    search();
-    // show__more__block[i].classList.add('displayBlock');
-
-}
-})
 
 
 
