@@ -205,33 +205,94 @@ const subclass = document.querySelectorAll('.subclass');
 let subclassCURR = 0;
 
 for (let i = 0; i<subclass.length; i++) {
+    addTrans();
+    addClass();
     subclass[i].addEventListener('click', e => {
         if (e.target.dataset.subletter === "b" || e.target.dataset.subletter === "c" || e.target.dataset.subletter === "d" || e.target.dataset.subletter === "j") 
             {
                 subclassCURR = e.target.dataset.subletter;
-                console.log(subclassCURR);
-                reText_filter(subclassCURR);
-                filterSearchLetter();
+                // console.log(subclassCURR);
+                reText_filter(subclassCURR, subclass, '.subclass_block');
+                filterLetter();
             }
         else {
             if (e.target.dataset.all === "all") {
                 console.log("all");
                 shower();
-                document.querySelector('.subclass_block').textContent = "Класс автомобиля";
-                for (let i = 0; i<cards_array.length; i++) {
-                    cards_array[i].classList.remove('hideAllInputZero__1');
-                    cards_array[i].classList.add('hideAllInputZero__3');
-                }  
+                addLetter();
             }
         }    
 
     })
 }
 
-function reText_filter(el) {
-    for (let i = 0; i<subclass.length; i++) {
-        if (subclass[i].dataset.subletter == el) {
-            document.querySelector('.subclass_block').textContent = subclass[i].textContent;
+
+const subtrans = document.querySelectorAll('.subtrans');
+let subtransCURR = 0;
+
+for (let i = 0; i<subtrans.length; i++) {
+    subtrans[i].addEventListener('click', e => {
+        addLetter();
+        addClass();
+        if (e.target.dataset.subtransmission === "auto" || e.target.dataset.subtransmission === "mechanic" ) 
+            {
+                subtransCURR = e.target.dataset.subtransmission;
+                // console.log(subtransCURR);
+                reText_filter(subtransCURR, subtrans, '.subtrans_block');
+                filterTrans();
+            }
+        else {
+            if (e.target.dataset.all === "all") {
+                console.log("all");
+                shower();
+                addTrans();
+            }
+        }    
+
+    })
+}
+
+
+const substyle = document.querySelectorAll('.substyle');
+let substyleCURR = 0;
+
+for (let i = 0; i<substyle.length; i++) {
+    substyle[i].addEventListener('click', e => {
+        addLetter();
+        addTrans();
+        if (e.target.dataset.subclass === "suv" || e.target.dataset.subclass === "minivan" || e.target.dataset.subclass === "pic" || e.target.dataset.subclass === "sed" || e.target.dataset.subclass === "univ") 
+            {
+                substyleCURR = e.target.dataset.subclass;
+                console.log(substyleCURR);
+                reText_filter(substyleCURR, substyle, '.substyle_block');
+                filterClass();
+            }
+        else {
+            if (e.target.dataset.all === "all") {
+                console.log("all");
+                shower();
+                addClass();
+            }
+        }    
+
+    })
+}
+
+
+function reText_filter(el, array, nameclass) {
+    for (let i = 0; i<array.length; i++) {
+        if (array[i].dataset.subletter == el) {
+            document.querySelector(nameclass).textContent = array[i].textContent;
+        }
+        else {
+            if (array[i].dataset.subtransmission == el) {
+                document.querySelector(nameclass).textContent = array[i].textContent;
+            }
+            else {
+                if (array[i].dataset.subclass == el) {
+                    document.querySelector(nameclass).textContent = array[i].textContent;
+                }
+            }
         }
     }
 }
@@ -244,7 +305,9 @@ show__more.addEventListener('click', () => {
         shower();
     }
     checker_morebtn();
-    filterSearchLetter()
+    filterLetter();
+    filterTrans();
+    filterClass();
 })
 
 
@@ -327,12 +390,13 @@ function checker_morebtn() {
 
 }
 
-function filterSearchLetter() {
+function filterLetter() {
     for (let i = 0; i<cards_array.length; i++) {
         cards_array[i].style.display = "none";
         cards_array[i].classList.remove('hideAllInputZero__3');
     }
-    for (let i = 0; i<before_click.length; i++) 
+
+   for (let i = 0; i<before_click.length; i++) 
     {
         if (before_click[i].dataset.letter == subclassCURR) {
             before_click[i].classList.remove('hideAllInputZero__1');
@@ -350,8 +414,86 @@ function filterSearchLetter() {
                 after_click[i].classList.add('hideAllInputZero__3');
             }
         }
-    }
+    } 
 }
+
+function filterTrans() {
+    for (let i = 0; i<cards_array.length; i++) {
+        cards_array[i].style.display = "none";
+        cards_array[i].classList.remove('hideAllInputZero__3');
+    }
+
+    for (let i = 0; i<before_click.length; i++) 
+     {
+         if (before_click[i].dataset.transmission === subtransCURR) {
+             before_click[i].classList.remove('hideAllInputZero__1');
+             before_click[i].style.display = "block";
+             before_click[i].classList.add('hideAllInputZero__3');
+         }
+ 
+     }
+ 
+     if (check_morebtn == true) {
+         for (let i = 0; i<after_click.length; i++) 
+         {
+             if (after_click[i].dataset.transmission === subtransCURR) {
+                 after_click[i].style.display = "block";
+                 after_click[i].classList.add('hideAllInputZero__3');
+             }
+         }
+     } 
+ }
+
+ function filterClass() {
+    for (let i = 0; i<cards_array.length; i++) {
+        cards_array[i].style.display = "none";
+        cards_array[i].classList.remove('hideAllInputZero__3');
+    }
+
+    for (let i = 0; i<before_click.length; i++) 
+     {
+         if (before_click[i].dataset.class === substyleCURR) {
+             before_click[i].classList.remove('hideAllInputZero__1');
+             before_click[i].style.display = "block";
+             before_click[i].classList.add('hideAllInputZero__3');
+         }
+ 
+     }
+ 
+     if (check_morebtn == true) {
+         for (let i = 0; i<after_click.length; i++) 
+         {
+             if (after_click[i].dataset.class === substyleCURR) {
+                 after_click[i].style.display = "block";
+                 after_click[i].classList.add('hideAllInputZero__3');
+             }
+         }
+     } 
+ }
+
+function addLetter() {
+  document.querySelector('.subclass_block').textContent = "Класс автомобиля";
+    for (let i = 0; i<cards_array.length; i++) {
+        cards_array[i].classList.remove('hideAllInputZero__1');
+        cards_array[i].classList.add('hideAllInputZero__3');
+    }    
+}
+
+function addTrans() {
+    document.querySelector('.subtrans_block').textContent = "Коробка передач";
+      for (let i = 0; i<cards_array.length; i++) {
+          cards_array[i].classList.remove('hideAllInputZero__1');
+          cards_array[i].classList.add('hideAllInputZero__3');
+      }    
+}
+
+function addClass() {
+    document.querySelector('.substyle_block').textContent = "Тип кузова";
+      for (let i = 0; i<cards_array.length; i++) {
+          cards_array[i].classList.remove('hideAllInputZero__1');
+          cards_array[i].classList.add('hideAllInputZero__3');
+      }    
+  }
 
 
 function hider() {
@@ -402,6 +544,8 @@ function shower() {
 
 
 function search() {
+    addLetter();
+
 input_value = document.querySelector('.search_form').value.toLowerCase();
 vocabulary();
 checker_morebtn();
