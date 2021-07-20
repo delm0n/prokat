@@ -38,11 +38,6 @@ function myScreen() {
 }
 
 
-// const animItems = document.querySelectorAll('.animation');
-// window.addEventListener('scroll', animOnScroll())
-
-
-
 const white_car = document.querySelector('.blockWithImg')
 const width_container = document.querySelector('.witeCar__container').clientWidth;
 let html_page = 0
@@ -131,22 +126,6 @@ iconmenu.addEventListener('click', e => {
         iconmenu.classList.remove('openmenu');
     }
 })
-
-// const links = document.querySelectorAll('.menu-link[data-goto]')
-// for (let i = 0; i < links.length; i++) {
-//     links[i].addEventListener('click', e => {
-//         const menuLink = e.target;
-//         console.log(menuLink);
-
-//         const goToBlock = document.querySelector(menuLink.dataset.goto);
-//         const goToBlockValue = goToBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('.burger').offsetHeight -100;
-//         console.log(goToBlockValue);
-
-
-
-//     })
-// }
-
 
 
 const content_page_all = document.querySelectorAll('.content_page');
@@ -702,6 +681,27 @@ document.querySelector('.search_form').onkeypress = function (el) {
 }
 
 
+function onEntry(entry) {
+    entry.forEach(change => {
+      if (change.isIntersecting) {
+        change.target.classList.add('element-show');
+      }
+    });
+  }
+  
+  let options = { threshold: [0.5] };
+  let observer = new IntersectionObserver(onEntry, options);
+//   let elements = document.querySelectorAll('.element-animation-left');
+//   for (let elm of elements) {
+//     observer.observe(elm);
+//   }
 
+//   let elements2 = document.querySelectorAll('.element-animation-right');
+//   for (let elm of elements2) {
+//     observer.observe(elm);
+//   }
 
-
+  let elements = document.querySelectorAll('.element-animation-bottom');
+  for (let elm of elements) {
+    observer.observe(elm);
+  }

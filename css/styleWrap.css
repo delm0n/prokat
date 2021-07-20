@@ -31,7 +31,7 @@ header, section, .navContainer, .offer__container, .footer__container, .contain_
 }
 
 .munuburger__flex {
-        display: flex;
+    display: flex;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
@@ -491,7 +491,26 @@ display: none;
 }
 
 
+/* .element-animation-left {
+    opacity: 0;
+    transform: translateX(-100px);
+}
 
+.element-animation-right {
+    opacity: 0;
+    transform: translateX(100px);
+}
+*/
+.element-animation-bottom {
+    opacity: 0;
+    transform: translateY(100px);
+} 
+
+.element-show{
+    opacity: 1;
+    transition: all 0.6s;
+    transform: translate(0px, 0px);
+}
 
 @media (max-width: 425px) {
     .imgWhiteBlockContainer {
@@ -585,7 +604,7 @@ display: none;
     }
 
     .offer__container {
-        padding:60px 0px 200px 20px;
+        padding:60px 20px 200px 20px;
     }
 
     .flex_whiteContainer{

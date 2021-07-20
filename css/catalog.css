@@ -128,6 +128,7 @@ color: rgba(3, 23, 75, 0.7);
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    /* justify-content: center; */
 }
 
 
@@ -302,9 +303,13 @@ color: rgba(3, 23, 75, 0.6);
 .containerFor_List{
     display: none;
 }
-    .catalog {
-        margin-top: 38px;
-    }
+.catalog {
+    margin-top: 38px;
+}
+
+.containerCenter {
+    justify-content: center;
+}
 }
 
 @media (min-width:768px) {
