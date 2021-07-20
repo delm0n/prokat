@@ -230,7 +230,7 @@ const show__more = document.querySelector('.show__more'),
  let was_search = false;
 let input_value = "";
 let check_morebtn = false;
-let iusefilter = undefined, iusesearch = undefined;
+let iusefilter = false, iusesearch = false;
 
 const subclass = document.querySelectorAll('.subclass');
 let subclassCURR = 0;
@@ -243,13 +243,13 @@ addClass();
 for (let i = 0; i<subclass.length; i++) {
     subclass[i].addEventListener('click', e => {
         iusefilter = true;
-        
+        close_f()
         console.log(iusefilter);
         if (e.target.dataset.subletter === "b" || e.target.dataset.subletter === "c" || e.target.dataset.subletter === "d" || e.target.dataset.subletter === "j") 
             {
                 subclassCURR = e.target.dataset.subletter;
                 // console.log(subclassCURR);
-                checkfuckingbtn()
+                // checkfuckingbtn()
                 reText_filter(subclassCURR, subclass, '.subclass_block');
                 filterLetter();
             }
@@ -279,12 +279,12 @@ for (let i = 0; i<subtrans.length; i++) {
     
     subtrans[i].addEventListener('click', e => {
     iusefilter = true;
-    
+    close_f()
     console.log(iusefilter);
         if (e.target.dataset.subtransmission === "auto" || e.target.dataset.subtransmission === "mechanic" ) 
             {
                 subtransCURR = e.target.dataset.subtransmission;
-                checkfuckingbtn();
+                // checkfuckingbtn();
                 reText_filter(subtransCURR, subtrans, '.subtrans_block');
                 filterTrans();
             }
@@ -311,12 +311,12 @@ for (let i = 0; i<substyle.length; i++) {
     
     substyle[i].addEventListener('click', e => {   
         iusefilter = true; 
-        
+        close_f()
         console.log(iusefilter);
         if (e.target.dataset.subclass === "suv" || e.target.dataset.subclass === "minivan" || e.target.dataset.subclass === "pic" || e.target.dataset.subclass === "sed" || e.target.dataset.subclass === "univ") 
             {
                 substyleCURR = e.target.dataset.subclass;
-                checkfuckingbtn();
+                // checkfuckingbtn();
                 reText_filter(substyleCURR, substyle, '.substyle_block');
                 filterClass();
             }
@@ -352,17 +352,18 @@ function reText_filter(el, array, nameclass) {
  
 
 
+show__more.addEventListener('click', () => {
+    check_morebtn = true;
+    show__more.textContent = "Перейти в каталог"
+    hello(); 
+
+    checkfuckingbtn()
+    
+})
 
 function checkfuckingbtn() {
 
     if (iusefilter == true ) {
-    show__more.addEventListener('click', () => {
-        check_morebtn = true;
-        show__more.textContent = "Перейти в каталог"
-        hello(); 
-
-        // shower();
-
         for (let i = 0; i<after_click.length; i++) {
             if (after_click[i].dataset.letter == subclassCURR) {
                 after_click[i].style.display = "block";
@@ -382,42 +383,26 @@ function checkfuckingbtn() {
                     }   
                 } 
             }
-            
-        })
     }
 
     else {
         if (iusesearch == true) {
-            show__more.addEventListener('click', () => {
-                check_morebtn = true;
-                show__more.textContent = "Перейти в каталог"
-                hello(); 
-
-                for (let i = 0; i<after_click.length; i++) 
-                {
-                    if (after_click[i].dataset.marks == input_value) {
-                        after_click[i].style.display = "block";
-                        after_click[i].classList.add('hideAllInputZero__3');
-                    }
+            for (let i = 0; i<after_click.length; i++) 
+            {
+                if (after_click[i].dataset.marks == input_value) {
+                    after_click[i].style.display = "block";
+                    after_click[i].classList.add('hideAllInputZero__3');
                 }
-            })
+            }
+            
         }
 
         else {
                 if (iusefilter == false && iusesearch == false) {
-                    // console.log(1);
-                    console.log(iusefilter);
-                    show__more.addEventListener('click', () => {
-                        check_morebtn = true;
-                        show__more.textContent = "Перейти в каталог"
-                        hello(); 
-
-                        // shower();
-                        for (let i = 0; i<after_click.length; i++) {
-                            after_click[i].style.display = "block";
-                            after_click[i].classList.add('hideAllInputZero__3');
-                        }
-                    })
+                    for (let i = 0; i<after_click.length; i++) {
+                        after_click[i].style.display = "block";
+                        after_click[i].classList.add('hideAllInputZero__3');
+                    }
                 }
         }
     }
@@ -659,9 +644,9 @@ function shower() {
 
 function search() {
     addLetter();
+    addTrans();
+    addClass();
     iusesearch =true
-    // console.log(iusesearch);
-    checkfuckingbtn()
 
 input_value = document.querySelector('.search_form').value.toLowerCase();
 vocabulary();
