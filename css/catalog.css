@@ -211,7 +211,7 @@ ul {
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     .submenu {
-        -webkit-backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(3px);
         backdrop-filter: blur(3px);
         background-color: rgba(3, 23, 75, 0.4);
     }

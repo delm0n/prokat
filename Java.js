@@ -38,7 +38,7 @@ function myScreen() {
 }
 
 
-const animItems = document.querySelectorAll('.animation');
+// const animItems = document.querySelectorAll('.animation');
 // window.addEventListener('scroll', animOnScroll())
 
 
@@ -82,7 +82,7 @@ white_car.style.width = width + "px";
     observer: true,
     observerParents: true,
     observerSlideChildren: true,
-    speed:1000,
+    speed:900,
 
     breakpoints: {
         1079: {
@@ -116,6 +116,42 @@ white_car.style.width = width + "px";
         }
     }
 });
+
+
+const iconmenu = document.querySelector('.click__menu'),
+menu = document.querySelector('.menu__body');
+
+iconmenu.addEventListener('click', e => {
+    if (!menu.classList.contains('menu__body_active')) {
+        menu.classList.add('menu__body_active');
+        iconmenu.classList.add('openmenu');
+    }
+    else {
+        menu.classList.remove('menu__body_active');
+        iconmenu.classList.remove('openmenu');
+    }
+})
+
+const links = document.querySelectorAll('.menu-link[data-goto]')
+for (let i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', e => {
+        const menuLink = e.target;
+        console.log(menuLink);
+
+        const goToBlock = document.querySelector(menuLink.dataset.goto);
+        const goToBlockValue = goToBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('.burger').offsetHeight -100;
+        console.log(goToBlockValue);
+
+        // window.scrollTo({
+        //     top:goToBlockValue,
+        //     behavior: 'smooth'
+        // })
+
+        // e.preventDefault();
+
+    })
+}
+
 
 
 const content_page_all = document.querySelectorAll('.content_page');
@@ -196,17 +232,18 @@ const show__more = document.querySelector('.show__more'),
  before_click = document.querySelectorAll('.active__before__click__btn'),
  after_click = document.querySelectorAll('.active__after__click__btn');
 
-let was_search = false;
+ let was_search = false;
 let input_value = "";
 let check_morebtn = false;
 
-
 const subclass = document.querySelectorAll('.subclass');
 let subclassCURR = 0;
+document.querySelector('.subclass__absolute').addEventListener('click', e => {
+addTrans();
+addClass();
+})
 
 for (let i = 0; i<subclass.length; i++) {
-    addTrans();
-    addClass();
     subclass[i].addEventListener('click', e => {
         if (e.target.dataset.subletter === "b" || e.target.dataset.subletter === "c" || e.target.dataset.subletter === "d" || e.target.dataset.subletter === "j") 
             {
@@ -217,23 +254,29 @@ for (let i = 0; i<subclass.length; i++) {
             }
         else {
             if (e.target.dataset.all === "all") {
-                console.log("all");
+                // console.log("all");
                 shower();
                 addLetter();
             }
         }    
-
     })
 }
 
 
+
+
+
+
+
 const subtrans = document.querySelectorAll('.subtrans');
 let subtransCURR = 0;
-
+document.querySelector('.subtranss__absolute').addEventListener('click', e => {
+addLetter();
+addClass();
+})
 for (let i = 0; i<subtrans.length; i++) {
     subtrans[i].addEventListener('click', e => {
-        addLetter();
-        addClass();
+        
         if (e.target.dataset.subtransmission === "auto" || e.target.dataset.subtransmission === "mechanic" ) 
             {
                 subtransCURR = e.target.dataset.subtransmission;
@@ -243,7 +286,7 @@ for (let i = 0; i<subtrans.length; i++) {
             }
         else {
             if (e.target.dataset.all === "all") {
-                console.log("all");
+                // console.log("all");
                 shower();
                 addTrans();
             }
@@ -255,21 +298,23 @@ for (let i = 0; i<subtrans.length; i++) {
 
 const substyle = document.querySelectorAll('.substyle');
 let substyleCURR = 0;
+document.querySelector('.substyle__absolute').addEventListener('click', e => {
+addLetter();
+addTrans();
+})
 
 for (let i = 0; i<substyle.length; i++) {
-    substyle[i].addEventListener('click', e => {
-        addLetter();
-        addTrans();
+    substyle[i].addEventListener('click', e => {    
         if (e.target.dataset.subclass === "suv" || e.target.dataset.subclass === "minivan" || e.target.dataset.subclass === "pic" || e.target.dataset.subclass === "sed" || e.target.dataset.subclass === "univ") 
             {
                 substyleCURR = e.target.dataset.subclass;
-                console.log(substyleCURR);
+                // console.log(substyleCURR);
                 reText_filter(substyleCURR, substyle, '.substyle_block');
                 filterClass();
             }
         else {
             if (e.target.dataset.all === "all") {
-                console.log("all");
+                // console.log("all");
                 shower();
                 addClass();
             }

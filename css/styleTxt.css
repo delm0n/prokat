@@ -260,7 +260,6 @@ background-color: #fff;
     display: none;
 }
 
-
 .swiper-button-disabled .str_cont .white{
 display: none;
 }
@@ -555,9 +554,18 @@ line-height: 22px;
 color: var(--IconColor);
 }
 
-/* .icon2-right{
-    position: absolute;
-} */
+
+.imgContLogoBurger {
+    background-size: cover ;
+    width: 164px;
+    height: 80px;
+    z-index: 30;
+}
+
+.imgContLogoBurger img{
+    width: 100%;
+    height: 100%;
+}
 
 @keyframes rotationFish {
     0% {
