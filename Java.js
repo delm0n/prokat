@@ -114,16 +114,22 @@ white_car.style.width = width + "px";
 
 
 const iconmenu = document.querySelector('.click__menu'),
-menu = document.querySelector('.menu__body');
+menu = document.querySelector('.menu__body')
+user = document.querySelector('.user_rotate_personal');
 
 iconmenu.addEventListener('click', e => {
     if (!menu.classList.contains('menu__body_active')) {
         menu.classList.add('menu__body_active');
         iconmenu.classList.add('openmenu');
+        document.body.classList.add('body_hidd');
+        setTimeout(function() {user.classList.add('rotateMyUser')},750)
+        
     }
     else {
         menu.classList.remove('menu__body_active');
         iconmenu.classList.remove('openmenu');
+        document.body.classList.remove('body_hidd');
+        user.classList.remove('rotateMyUser')
     }
 })
 
@@ -627,7 +633,7 @@ function search() {
     addClass();
     iusesearch =true
 
-input_value = document.querySelector('.search_form').value.toLowerCase();
+input_value = document.querySelector('.search_form').value.toLowerCase().replace(/\s/g, '');
 vocabulary();
 checker_morebtn();
 
@@ -691,16 +697,6 @@ function onEntry(entry) {
   
   let options = { threshold: [0.5] };
   let observer = new IntersectionObserver(onEntry, options);
-//   let elements = document.querySelectorAll('.element-animation-left');
-//   for (let elm of elements) {
-//     observer.observe(elm);
-//   }
-
-//   let elements2 = document.querySelectorAll('.element-animation-right');
-//   for (let elm of elements2) {
-//     observer.observe(elm);
-//   }
-
   let elements = document.querySelectorAll('.element-animation-bottom');
   for (let elm of elements) {
     observer.observe(elm);
