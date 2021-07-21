@@ -45,7 +45,8 @@
                 <div class="menu__items">
                     <div><a href="#catalog" class="menu-link" data-goto=".section_link_1">Автомобили</a></div>
                     <div><a href="hello.html" target="_blank">Условия проката</a></div>
-                    <div><a href="#instruction" class="menu-link" data-goto=".section_link_2">Как заказать авто?</a></div>
+                    <div><a href="#instruction" class="menu-link" data-goto=".section_link_2">Как заказать авто?</a>
+                    </div>
                     <div><a href="hello.html " target="_blank">Политика конфиденциальности</a></div>
                     <div><a href="#about_our" class="menu-link" data-goto=".section_link_3">О нас</a></div>
                     <div><a href="hello.html" target="_blank">Отзывы клиентов</a></div>
@@ -54,17 +55,17 @@
                     <div class="line__inBurg"></div>
                 </div>
                 <div class="personal_absolute"><a href="hello.html" target="_blank">
-                    <div class="line_personal">
-                        <div class="contforimg">
-                            <div class="img_personal_absoluteContainer">
-                            <img class="user_static_personal" src="img/user_sm.svg" alt="user">
-                            <img class="user_rotate_personal" src="img/fish_sm.svg" alt="fish">
+                        <div class="line_personal">
+                            <div class="contforimg">
+                                <div class="img_personal_absoluteContainer">
+                                    <img class="user_static_personal" src="img/user_sm.svg" alt="user">
+                                    <img class="user_rotate_personal" src="img/fish_sm.svg" alt="fish">
+                                </div>
+                            </div>
+
+                            <div class="personal_absolute-decr">Личный кабинет</div>
                         </div>
-                        </div>
-                        
-                        <div class="personal_absolute-decr">Личный кабинет</div>
-                    </div>
-                </a></div>
+                    </a></div>
             </div>
 
         </div>
@@ -170,10 +171,7 @@
                         <h2 class="title_block title_block_active" data-title="1">Популярные</h2>
                     </div>
                     <div class="titleInSection_page">
-                        <h2 class="title_block" data-title="2">Акции</h2>
-                    </div>
-                    <div class="titleInSection_page tree_news">
-                        <h2 class="title_block" data-title="3">Новинки</h2>
+                        <h2 class="title_block ivent" data-title="2">Акции</h2>
                     </div>
                 </div>
 
@@ -500,13 +498,46 @@
                         </div>
                     </div>
 
-                    <div class="content_page " data-page="2">блок с акциями</div>
-                    <div class="content_page " data-page="3">блок с новинками</div>
+                    <div class="content_page " data-page="2">
+                        <div class="hiden__page2 swiper-container">
+                            <div class="ivent_blocks swiper-wrapper">
+                                <div class=" swiper-slide ivent_item">
+                                    <div class="content__place">
+                                        <div class="Title">Приводите друзей и катайтесь бесплатно!</div>
+                                        <div class="Decript">Реферальная программа даёт Вам возможность получать на накопительный счёт по 300 рублей с каждого приведённого друга. Ими Вы сможете расплачиваться за аренду автомобиля!</div>
+                                        <div class="Button"><div class="btn_bg2_details">Подробнее</div></div> 
+                                        <div class="content__blur1"></div>
+                                        <div class="content__img1"></div>
+                                    </div>
+                                </div>
+                                <div class=" swiper-slide ivent_item">
+                                    <div class="content__place">
+                                        <div class="Title">Подписывайтесь на наши соцсети!</div>
+                                        <div class="Decript">Подписывайтесь на наш инстаграм - именно там каждую неделю наша компания проводит розыгрыши бесплатных поездок специально для Вас!</a></div>
+                                        <div class="Button"><div class="btn_bg2_details">Подробнее</div></div> 
+                                        <div class="content__blur2"></div>
+                                        <div class="content__img2"></div>
+                                    </div>
+                                </div>
+                                <div class=" swiper-slide ivent_item">
+                                    <div class="content__place">
+                                        <div class="Title">Сделай пять заказов и катайтесь бесплатно!</div>
+                                        <div class="Decript">Если на Ваш зарегистрированный аккаунт было заказано больше пяти автомобилей, то следующий - наша компания оплатит за Вас!</div>
+                                        <div class="Button"><div class="btn_bg2_details">Подробнее</div></div> 
+                                        <div class="content__blur3"></div>
+                                        <div class="content__img3"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </section>
 
-            <section id="catalog" class="catalog section_link_1" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+            <section id="catalog" class="catalog section_link_1" data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom">
                 <div class="titleInSection">
                     <h2>Каталог</h2>
                 </div>
@@ -770,7 +801,7 @@
                                             <div class="icon-C"></div>
                                             <div class="decript_card">Класс</div>
                                         </div>
-                                        <div>
+                                        <div class="sedan">
                                             <div class="icon-door"></div>
                                             <div class="decript_card">Седан</div>
                                         </div>
@@ -1071,7 +1102,7 @@
                                             <div class="icon-C"></div>
                                             <div class="decript_card">Класс</div>
                                         </div>
-                                        <div>
+                                        <div class="sedan">
                                             <div class="icon-door"></div>
                                             <div class="decript_card">Седан</div>
                                         </div>
@@ -1215,21 +1246,25 @@
                 <div class="flex_whiteContainer">
                     <div class="whiteBlock__container element-animation-bottom">
                         <div class="instruction__whiteBlock anim_class">
-                            <div class="imgWhiteBlockContainer"><img class="user_static" src="img/user.png"
-                                    alt="user"><img class="user_totate" src="img/fish.png" alt="fish"></div>
+                            <div class="imgWhiteBlockContainer"><img class="user_static" src="img/user.png" alt="user">
+                                <img class="user_totate" src="img/fish.png" alt="fish">
+                            </div>
+                            
                             <div class="text__whiteBlock ">Заполните форму регистрации, которая находится на верху
                                 нашего сайта</div>
                         </div>
                         <div class="instruction__whiteBlock anim_class">
                             <div class="imgWhiteBlockContainer"><img class="user_static" src="img/dox.png"
                                     alt="car"><img class="user_totate" src="img/fish.png" alt="fish"></div>
-                            <div class="text__whiteBlock ">С вами свяжется консультат и поможет с оформлением всех
+                                    
+                                    <div class="text__whiteBlock ">С вами свяжется консультат и поможет с оформлением всех
                                 документов</div>
                         </div>
                         <div class="instruction__whiteBlock anim_class">
                             <div class="imgWhiteBlockContainer"><img class="user_static" src="img/car.png"
                                     alt="user"><img class="user_totate" src="img/fish.png" alt="fish"></div>
-                            <div class="text__whiteBlock ">Договоритесь о месте встречи и заберите автомобиль</div>
+                                    
+                                    <div class="text__whiteBlock ">Договоритесь о месте встречи и заберите автомобиль</div>
                         </div>
                     </div>
                     <div class="witeCar__container">
@@ -1240,16 +1275,16 @@
             </section>
 
             <section id="about_our" class="about_our section_link_3 ">
-                <div class="discounts element-animation-bottom">
-                    <div class="name__about">СКИДКИ</div>
-                    <div class="decrip__about">Мы делаем прокат авто
-                        выгодным для клиента! </div>
-                </div>
                 <div class="quality element-animation-bottom">
                     <div class="name__about">КАЧЕСТВО</div>
                     <div class="decrip__about">Мы сдаём автомобили
                         только после полного
                         техобслуживания!</div>
+                </div>
+                <div class="discounts element-animation-bottom">
+                    <div class="name__about">КОМПЛЕКТАЦИЯ</div>
+                    <div class="decrip__about">К каждому автомобилю прилагается навигатор, антирадар и детское кресло
+                    </div>
                 </div>
                 <div class="delivery element-animation-bottom">
                     <div class="name__about">ДОСТАВКА</div>

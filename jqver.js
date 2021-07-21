@@ -1,7 +1,7 @@
 
 $(function() {
 
-
+    //плавная работа ссылок
     $("a.menu-link").on("click", function(e){
         e.preventDefault();
         var anchor = $(this).attr('href');
@@ -24,14 +24,27 @@ $(function() {
         }, 800);
     }); 
         
+
+    //плавный скролл наверх
     $("a.btn__upHead").on("click", function(e){
         e.preventDefault();
         var anchor = $(this).attr('href');
         $('html, body').stop().animate({
             scrollTop: 0
         }, 800);
+
+
     }); 
 
 
+    //остановка при наведении
+    $(".hiden__page2").each(function(elem, target){
+        var swp = target.swiper;
+        $(this).hover(function() {
+            swp.autoplay.stop();
+        }, function() {
+            swp.autoplay.start();
+        });
+    });
 });
 

@@ -113,6 +113,13 @@ white_car.style.width = width + "px";
 });
 
 
+
+
+
+
+
+
+
 const iconmenu = document.querySelector('.click__menu'),
 menu = document.querySelector('.menu__body')
 user = document.querySelector('.user_rotate_personal');
@@ -122,7 +129,7 @@ iconmenu.addEventListener('click', e => {
         menu.classList.add('menu__body_active');
         iconmenu.classList.add('openmenu');
         document.body.classList.add('body_hidd');
-        setTimeout(function() {user.classList.add('rotateMyUser')},750)
+        setTimeout(function() {user.classList.add('rotateMyUser')},600)
         
     }
     else {
@@ -150,7 +157,7 @@ let currTab = 0
 //узнаём с помощью target элемент, по которому кликнули
 for (let i = 0; i<title_block.length; i++) {
     title_block[i].addEventListener('click', e => {
-        if (e.target.dataset.title === "1" || e.target.dataset.title === "2" || e.target.dataset.title === "3" ) 
+        if (e.target.dataset.title === "1" || e.target.dataset.title === "2" ) 
             {
                 currTab = e.target.dataset.title - 1;
                 // console.log(currTab)
@@ -163,11 +170,61 @@ for (let i = 0; i<title_block.length; i++) {
                 if (content_page_all[i].dataset.page == (currTab+1)) 
                     {
                         content_page_all[i].classList.add('active_page');
+                        
                     }
             }
+                if ((currTab+1) == 2) {
+                    swiper2.update();
+                    swiper2.autoplay.stop();
+                    swiper2.autoplay.start();
+                }
+                else {
+                    swiper2.autoplay.stop();
+                }
+            
 
     })
 }
+
+const swiper2 = new Swiper('.hiden__page2', {
+
+    observer: true,
+    observerParents: true,
+    observerSlideChildren: true,
+    loop: true,
+    spaceBetween: 50,
+    // autoplayDisableOnInteraction: false,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+    },
+    // slidesPerView:2,
+    slidesPerGroup:1, 
+    speed:1000, 
+    breakpoints: {
+        1050: {
+            slidesPerView:2,
+        },
+
+        500: {
+            slidesPerView:1,
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const formTabs = document.querySelectorAll('.formTabs')
 const formTabs_container = document.querySelector('.formTabs__container')
@@ -701,3 +758,10 @@ function onEntry(entry) {
   for (let elm of elements) {
     observer.observe(elm);
   }
+
+
+
+document.querySelector('.btn__upHead').addEventListener('click', e => {
+    document.querySelector('.ivent').click();
+})
+
