@@ -30,7 +30,7 @@ $(function() {
         e.preventDefault();
         var anchor = $(this).attr('href');
         $('html, body').stop().animate({
-            scrollTop: 0
+            scrollTop: 200
         }, 800);
 
 
