@@ -532,11 +532,7 @@ display: none;
     }
 
     .card {
-        /* box-shadow: 4px 4px 10px rgba(136, 169, 254, 0.8);
-        
-        background-color: white; */
         height: 412px;
-        /* transition: all 0.7s ease 0s;    */
         padding-top: 15px;
     }
 }

@@ -192,7 +192,7 @@ const swiper2 = new Swiper('.hiden__page2', {
     observerParents: true,
     observerSlideChildren: true,
     loop: true,
-    spaceBetween: 50,
+    // spaceBetween: 50,
     // autoplayDisableOnInteraction: false,
     autoplay: {
         delay: 3000,
@@ -204,10 +204,17 @@ const swiper2 = new Swiper('.hiden__page2', {
     breakpoints: {
         1050: {
             slidesPerView:2,
+            spaceBetween: 50,
+        },
+
+        1024: {
+            slidesPerView:2,
+            spaceBetween: 10,
         },
 
         500: {
             slidesPerView:1,
+            spaceBetween: 10,
         }
     }
 });

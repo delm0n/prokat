@@ -763,19 +763,11 @@ filter: blur(0px);
   }
 
 
-@media (max-width:500px) {
-      
-    .content__place {
-        width: 400px;
-        height: 400px;
-    }
-}
 
 
-
-@media (max-width:768px) {
+@media (max-width:767px) {
     .Title {
-        padding: 0px;
+        padding: 0px 10px;
         top: 30%;
         line-height: 30px;
         font-size: 30px;
@@ -788,8 +780,48 @@ filter: blur(0px);
         transform: translateY(0px);
         opacity: 1;
     }
+
+    .Decript {
+        display: none;
+    }
 }
 
+@media (max-width:500px) {
+      
+    .content__place {
+        width: 400px;
+        height: 400px;
+    }
+
+    .Button{
+        left: 80px;
+        transform: translateY(0px) scale(0.85);
+    }
+}
+
+@media (max-width:400px) {
+      
+    .content__place {
+        width: 300px;
+        height: 300px;
+    }
+
+    .Title {
+        padding: 0px 10px;
+        top: 30%;
+        line-height: 30px;
+        font-size: 20px;
+}
+
+    .Button{
+        padding: 0px;
+        top: 60%;
+        left: 29px;
+        transform: translateY(0px) scale(0.7);
+        opacity: 1;
+    }
+
+}
 
   @media (min-width:768px) {
     .ivent_item:hover .Title{
