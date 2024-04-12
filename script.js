@@ -74,38 +74,52 @@ const swiper = new Swiper(".hiddenoverflow", {
   observerParents: true,
   observerSlideChildren: true,
   speed: 900,
+  slidesPerView: "auto",
+  slidesOffsetAfter: 20,
+  slidesOffsetBefore: 20,
 
   breakpoints: {
-    1079: {
-      slidesPerView: 3,
-      freeMode: false,
-      simulateTouch: false,
+    425: {
+      slidesPerView: "auto",
     },
-
-    917: {
-      slidesPerView: 2.6,
-      freeMode: false,
-      simulateTouch: false,
-    },
-
-    768: {
-      slidesPerView: 2,
-      freeMode: false,
-      simulateTouch: false,
-    },
-
-    500: {
-      slidesPerView: 1.5,
-      freeMode: true,
-      simulateTouch: true,
-    },
-
-    350: {
-      slidesPerView: 0.9,
-      freeMode: true,
-      simulateTouch: true,
+    0: {
+      slidesPerView: 1,
     },
   },
+  //   1079: {
+  //     slidesPerView: 3,
+  //     freeMode: false,
+  //     simulateTouch: false,
+  //   },
+
+  //   917: {
+  //     slidesPerView: 2.6,
+  //     freeMode: false,
+  //     simulateTouch: false,
+  //   },
+
+  //   768: {
+  //     slidesPerView: 2,
+  //     freeMode: false,
+  //     simulateTouch: false,
+  //   },
+
+  //   500: {
+  //     slidesPerView: 1.5,
+  //     freeMode: true,
+  //     simulateTouch: true,
+  //     slidesOffsetAfter: 20,
+  //     slidesOffsetBefore: 20,
+  //   },
+
+  //   350: {
+  //     slidesPerView: 0.9,
+  //     freeMode: true,
+  //     simulateTouch: true,
+  //     slidesOffsetAfter: 20,
+  //     slidesOffsetBefore: 20,
+  //   },
+  // },
 });
 
 const iconmenu = document.querySelector(".click__menu"),
@@ -171,6 +185,8 @@ const swiper2 = new Swiper(".hiden__page2", {
   loop: true,
   // spaceBetween: 50,
   // autoplayDisableOnInteraction: false,
+  // slidesOffsetAfter: 20,
+  // slidesOffsetBefore: 20,
   autoplay: {
     delay: 3000,
     disableOnInteraction: false,
